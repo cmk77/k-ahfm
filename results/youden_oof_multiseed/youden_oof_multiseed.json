@@ -1,0 +1,311 @@
+{
+  "seeds": [
+    "0",
+    "42",
+    "2026",
+    "7",
+    "1024"
+  ],
+  "per_seed": {
+    "0": {
+      "n": 140,
+      "n_pos": 35,
+      "auroc": 0.5603,
+      "youden": 0.4867,
+      "prob_mean": 0.4848,
+      "prob_std": 0.0361,
+      "baseline": {
+        "TP": 14,
+        "TN": 70,
+        "FP": 35,
+        "FN": 21,
+        "recall_pos": 0.4,
+        "precision_pos": 0.2857142857142857,
+        "f1_pos": 0.3333333333333333,
+        "mcc": 0.06052275326688024,
+        "bal_acc": 0.5333333333333333
+      },
+      "youden_metrics": {
+        "TP": 22,
+        "TN": 55,
+        "FP": 50,
+        "FN": 13,
+        "recall_pos": 0.6285714285714286,
+        "precision_pos": 0.3055555555555556,
+        "f1_pos": 0.4112149532710281,
+        "mcc": 0.13201967239688991,
+        "bal_acc": 0.5761904761904761
+      },
+      "diag_base": {
+        "depression": 0.1,
+        "anxiety": 0.5333333333333333,
+        "addiction": 0.5
+      },
+      "diag_youden": {
+        "depression": 0.4,
+        "anxiety": 0.6666666666666666,
+        "addiction": 0.8
+      }
+    },
+    "42": {
+      "n": 140,
+      "n_pos": 35,
+      "auroc": 0.4882,
+      "youden": 0.4787,
+      "prob_mean": 0.5162,
+      "prob_std": 0.0361,
+      "baseline": {
+        "TP": 21,
+        "TN": 37,
+        "FP": 68,
+        "FN": 14,
+        "recall_pos": 0.6,
+        "precision_pos": 0.23595505617977527,
+        "f1_pos": 0.3387096774193548,
+        "mcc": -0.042847874727421735,
+        "bal_acc": 0.47619047619047616
+      },
+      "youden_metrics": {
+        "TP": 31,
+        "TN": 24,
+        "FP": 81,
+        "FN": 4,
+        "recall_pos": 0.8857142857142857,
+        "precision_pos": 0.2767857142857143,
+        "f1_pos": 0.42176870748299317,
+        "mcc": 0.12371791482634838,
+        "bal_acc": 0.5571428571428572
+      },
+      "diag_base": {
+        "depression": 0.5,
+        "anxiety": 0.7333333333333333,
+        "addiction": 0.5
+      },
+      "diag_youden": {
+        "depression": 0.7,
+        "anxiety": 1.0,
+        "addiction": 0.9
+      }
+    },
+    "2026": {
+      "n": 140,
+      "n_pos": 35,
+      "auroc": 0.5086,
+      "youden": 0.5235,
+      "prob_mean": 0.5158,
+      "prob_std": 0.0271,
+      "baseline": {
+        "TP": 21,
+        "TN": 42,
+        "FP": 63,
+        "FN": 14,
+        "recall_pos": 0.6,
+        "precision_pos": 0.25,
+        "f1_pos": 0.35294117647058826,
+        "mcc": 0.0,
+        "bal_acc": 0.5
+      },
+      "youden_metrics": {
+        "TP": 10,
+        "TN": 82,
+        "FP": 23,
+        "FN": 25,
+        "recall_pos": 0.2857142857142857,
+        "precision_pos": 0.30303030303030304,
+        "f1_pos": 0.2941176470588235,
+        "mcc": 0.06801247102172704,
+        "bal_acc": 0.5333333333333333
+      },
+      "diag_base": {
+        "depression": 0.5,
+        "anxiety": 0.6666666666666666,
+        "addiction": 0.6
+      },
+      "diag_youden": {
+        "depression": 0.3,
+        "anxiety": 0.3333333333333333,
+        "addiction": 0.2
+      }
+    },
+    "7": {
+      "n": 140,
+      "n_pos": 35,
+      "auroc": 0.5518,
+      "youden": 0.5169,
+      "prob_mean": 0.4996,
+      "prob_std": 0.0267,
+      "baseline": {
+        "TP": 17,
+        "TN": 51,
+        "FP": 54,
+        "FN": 18,
+        "recall_pos": 0.4857142857142857,
+        "precision_pos": 0.23943661971830985,
+        "f1_pos": 0.32075471698113206,
+        "mcc": -0.02474610820719749,
+        "bal_acc": 0.4857142857142857
+      },
+      "youden_metrics": {
+        "TP": 15,
+        "TN": 77,
+        "FP": 28,
+        "FN": 20,
+        "recall_pos": 0.42857142857142855,
+        "precision_pos": 0.3488372093023256,
+        "f1_pos": 0.38461538461538464,
+        "mcc": 0.15197361672544404,
+        "bal_acc": 0.5809523809523809
+      },
+      "diag_base": {
+        "depression": 0.6,
+        "anxiety": 0.3333333333333333,
+        "addiction": 0.6
+      },
+      "diag_youden": {
+        "depression": 0.6,
+        "anxiety": 0.3333333333333333,
+        "addiction": 0.4
+      }
+    },
+    "1024": {
+      "n": 140,
+      "n_pos": 35,
+      "auroc": 0.5186,
+      "youden": 0.4577,
+      "prob_mean": 0.4877,
+      "prob_std": 0.0389,
+      "baseline": {
+        "TP": 17,
+        "TN": 52,
+        "FP": 53,
+        "FN": 18,
+        "recall_pos": 0.4857142857142857,
+        "precision_pos": 0.24285714285714285,
+        "f1_pos": 0.3238095238095238,
+        "mcc": -0.016495721976846452,
+        "bal_acc": 0.4904761904761905
+      },
+      "youden_metrics": {
+        "TP": 26,
+        "TN": 38,
+        "FP": 67,
+        "FN": 9,
+        "recall_pos": 0.7428571428571429,
+        "precision_pos": 0.27956989247311825,
+        "f1_pos": 0.40625,
+        "mcc": 0.09605979479474512,
+        "bal_acc": 0.5523809523809524
+      },
+      "diag_base": {
+        "depression": 0.4,
+        "anxiety": 0.4666666666666667,
+        "addiction": 0.6
+      },
+      "diag_youden": {
+        "depression": 0.8,
+        "anxiety": 0.7333333333333333,
+        "addiction": 0.7
+      }
+    }
+  },
+  "agg": {
+    "auroc": {
+      "mean": 0.5255,
+      "ci95": 0.0264,
+      "n": 5
+    },
+    "youden_threshold": {
+      "mean": 0.4927,
+      "ci95": 0.024,
+      "n": 5
+    },
+    "baseline": {
+      "recall_pos": {
+        "mean": 0.5143,
+        "ci95": 0.0751,
+        "n": 5
+      },
+      "precision_pos": {
+        "mean": 0.2508,
+        "ci95": 0.0177,
+        "n": 5
+      },
+      "f1_pos": {
+        "mean": 0.3339,
+        "ci95": 0.0113,
+        "n": 5
+      },
+      "mcc": {
+        "mean": -0.0047,
+        "ci95": 0.0347,
+        "n": 5
+      },
+      "bal_acc": {
+        "mean": 0.4971,
+        "ci95": 0.0193,
+        "n": 5
+      }
+    },
+    "youden": {
+      "recall_pos": {
+        "mean": 0.5943,
+        "ci95": 0.2106,
+        "n": 5
+      },
+      "precision_pos": {
+        "mean": 0.3028,
+        "ci95": 0.0253,
+        "n": 5
+      },
+      "f1_pos": {
+        "mean": 0.3836,
+        "ci95": 0.0454,
+        "n": 5
+      },
+      "mcc": {
+        "mean": 0.1144,
+        "ci95": 0.0287,
+        "n": 5
+      },
+      "bal_acc": {
+        "mean": 0.56,
+        "ci95": 0.0169,
+        "n": 5
+      }
+    },
+    "diag_baseline": {
+      "depression": {
+        "mean": 0.42,
+        "ci95": 0.1686,
+        "n": 5
+      },
+      "anxiety": {
+        "mean": 0.5467,
+        "ci95": 0.1395,
+        "n": 5
+      },
+      "addiction": {
+        "mean": 0.56,
+        "ci95": 0.048,
+        "n": 5
+      }
+    },
+    "diag_youden": {
+      "depression": {
+        "mean": 0.56,
+        "ci95": 0.1818,
+        "n": 5
+      },
+      "anxiety": {
+        "mean": 0.6133,
+        "ci95": 0.2493,
+        "n": 5
+      },
+      "addiction": {
+        "mean": 0.6,
+        "ci95": 0.2556,
+        "n": 5
+      }
+    }
+  }
+}

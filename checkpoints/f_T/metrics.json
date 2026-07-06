@@ -1,0 +1,21 @@
+{
+  "best_val_accuracy": 0.3750624063904144,
+  "final_epoch": 5,
+  "config": {
+    "corpus": "<repo>/data/processed/aihub539_corpus.jsonl",
+    "output": "<repo>/checkpoints/f_T",
+    "backbone": "klue/roberta-base",
+    "embedding_dim": 512,
+    "max_length": 96,
+    "batch_size": 96,
+    "epochs": 5,
+    "lr": 2e-05,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "val_ratio": 0.1,
+    "seed": 42,
+    "fp16": true,
+    "num_workers": 4,
+    "max_utterances": null
+  }
+}

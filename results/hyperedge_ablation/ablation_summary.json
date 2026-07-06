@@ -1,0 +1,1191 @@
+{
+  "fold": 0,
+  "seed": 42,
+  "total_time_sec": 43.9,
+  "by_scenario": {
+    "early": {
+      "full_B6": {
+        "condition": "full_B6",
+        "excluded_type": null,
+        "excluded_name": null,
+        "scenario": "early",
+        "fold": 0,
+        "seed": 42,
+        "best_val_auroc": 1.0,
+        "best_epoch": 19,
+        "epochs_trained": 34,
+        "train_time_sec": 2.2,
+        "test_tr": {
+          "n_samples": 28,
+          "n_pos": 7,
+          "n_neg": 21,
+          "auroc": 0.6258503401360543,
+          "f1_pos": 0.2222222222222222,
+          "mcc": 0.16012815380508713,
+          "balanced_acc": 0.5476190476190476,
+          "accuracy": 0.75,
+          "precision_pos": 0.5,
+          "recall_pos": 0.14285714285714285
+        },
+        "test_diag": {
+          "n_samples": 28,
+          "accuracy": 0.8571428571428571,
+          "macro_f1": 0.8552115583075336,
+          "per_class_precision": [
+            1.0,
+            0.7272727272727273,
+            0.875,
+            0.0
+          ],
+          "per_class_recall": [
+            0.8181818181818182,
+            1.0,
+            0.7777777777777778,
+            0.0
+          ],
+          "per_class_f1": [
+            0.9,
+            0.8421052631578947,
+            0.8235294117647058,
+            0.0
+          ],
+          "per_class_support": [
+            11,
+            8,
+            9,
+            0
+          ],
+          "confusion_matrix": [
+            [
+              9,
+              1,
+              1,
+              0
+            ],
+            [
+              0,
+              8,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              7,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "test_per_diag_tr": {
+          "depression": {
+            "n_samples": 11,
+            "n_pos": 2,
+            "n_neg": 9,
+            "auroc": 0.33333333333333337,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.8181818181818182,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "anxiety": {
+            "n_samples": 8,
+            "n_pos": 4,
+            "n_neg": 4,
+            "auroc": 1.0,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.5,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "addiction": {
+            "n_samples": 9,
+            "n_pos": 1,
+            "n_neg": 8,
+            "auroc": 1.0,
+            "f1_pos": 0.6666666666666666,
+            "mcc": 0.6614378277661476,
+            "balanced_acc": 0.9375,
+            "accuracy": 0.8888888888888888,
+            "precision_pos": 0.5,
+            "recall_pos": 1.0
+          },
+          "normal": null
+        }
+      },
+      "minus_E_trajectory": {
+        "condition": "minus_E_trajectory",
+        "excluded_type": 0,
+        "excluded_name": "E_trajectory",
+        "scenario": "early",
+        "fold": 0,
+        "seed": 42,
+        "best_val_auroc": 1.0,
+        "best_epoch": 19,
+        "epochs_trained": 34,
+        "train_time_sec": 1.7,
+        "test_tr": {
+          "n_samples": 28,
+          "n_pos": 7,
+          "n_neg": 21,
+          "auroc": 0.5850340136054422,
+          "f1_pos": 0.2222222222222222,
+          "mcc": 0.16012815380508713,
+          "balanced_acc": 0.5476190476190476,
+          "accuracy": 0.75,
+          "precision_pos": 0.5,
+          "recall_pos": 0.14285714285714285
+        },
+        "test_diag": {
+          "n_samples": 28,
+          "accuracy": 0.8571428571428571,
+          "macro_f1": 0.8552115583075336,
+          "per_class_precision": [
+            1.0,
+            0.7272727272727273,
+            0.875,
+            0.0
+          ],
+          "per_class_recall": [
+            0.8181818181818182,
+            1.0,
+            0.7777777777777778,
+            0.0
+          ],
+          "per_class_f1": [
+            0.9,
+            0.8421052631578947,
+            0.8235294117647058,
+            0.0
+          ],
+          "per_class_support": [
+            11,
+            8,
+            9,
+            0
+          ],
+          "confusion_matrix": [
+            [
+              9,
+              1,
+              1,
+              0
+            ],
+            [
+              0,
+              8,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              7,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "test_per_diag_tr": {
+          "depression": {
+            "n_samples": 11,
+            "n_pos": 2,
+            "n_neg": 9,
+            "auroc": 0.38888888888888895,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.8181818181818182,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "anxiety": {
+            "n_samples": 8,
+            "n_pos": 4,
+            "n_neg": 4,
+            "auroc": 1.0,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.5,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "addiction": {
+            "n_samples": 9,
+            "n_pos": 1,
+            "n_neg": 8,
+            "auroc": 1.0,
+            "f1_pos": 0.6666666666666666,
+            "mcc": 0.6614378277661476,
+            "balanced_acc": 0.9375,
+            "accuracy": 0.8888888888888888,
+            "precision_pos": 0.5,
+            "recall_pos": 1.0
+          },
+          "normal": null
+        }
+      },
+      "minus_E_co-trajectory": {
+        "condition": "minus_E_co-trajectory",
+        "excluded_type": 1,
+        "excluded_name": "E_co-trajectory",
+        "scenario": "early",
+        "fold": 0,
+        "seed": 42,
+        "best_val_auroc": 1.0,
+        "best_epoch": 17,
+        "epochs_trained": 32,
+        "train_time_sec": 1.5,
+        "test_tr": {
+          "n_samples": 28,
+          "n_pos": 7,
+          "n_neg": 21,
+          "auroc": 0.47619047619047616,
+          "f1_pos": 0.11764705882352941,
+          "mcc": -0.2581988897471611,
+          "balanced_acc": 0.3571428571428571,
+          "accuracy": 0.4642857142857143,
+          "precision_pos": 0.1,
+          "recall_pos": 0.14285714285714285
+        },
+        "test_diag": {
+          "n_samples": 28,
+          "accuracy": 0.8928571428571429,
+          "macro_f1": 0.8882664176781824,
+          "per_class_precision": [
+            1.0,
+            0.8,
+            0.875,
+            0.0
+          ],
+          "per_class_recall": [
+            0.9090909090909091,
+            1.0,
+            0.7777777777777778,
+            0.0
+          ],
+          "per_class_f1": [
+            0.9523809523809523,
+            0.8888888888888888,
+            0.8235294117647058,
+            0.0
+          ],
+          "per_class_support": [
+            11,
+            8,
+            9,
+            0
+          ],
+          "confusion_matrix": [
+            [
+              10,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              8,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              7,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "test_per_diag_tr": {
+          "depression": {
+            "n_samples": 11,
+            "n_pos": 2,
+            "n_neg": 9,
+            "auroc": 0.38888888888888895,
+            "f1_pos": 0.0,
+            "mcc": -0.2222222222222222,
+            "balanced_acc": 0.3888888888888889,
+            "accuracy": 0.6363636363636364,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "anxiety": {
+            "n_samples": 8,
+            "n_pos": 4,
+            "n_neg": 4,
+            "auroc": 0.75,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.5,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "addiction": {
+            "n_samples": 9,
+            "n_pos": 1,
+            "n_neg": 8,
+            "auroc": 0.875,
+            "f1_pos": 0.2222222222222222,
+            "mcc": 0.125,
+            "balanced_acc": 0.5625,
+            "accuracy": 0.2222222222222222,
+            "precision_pos": 0.125,
+            "recall_pos": 1.0
+          },
+          "normal": null
+        }
+      },
+      "minus_E_intervention-response": {
+        "condition": "minus_E_intervention-response",
+        "excluded_type": 2,
+        "excluded_name": "E_intervention-response",
+        "scenario": "early",
+        "fold": 0,
+        "seed": 42,
+        "best_val_auroc": 1.0,
+        "best_epoch": 39,
+        "epochs_trained": 54,
+        "train_time_sec": 7.6,
+        "test_tr": {
+          "n_samples": 28,
+          "n_pos": 7,
+          "n_neg": 21,
+          "auroc": 0.7482993197278911,
+          "f1_pos": 0.4,
+          "mcc": 0.05383819020581655,
+          "balanced_acc": 0.5238095238095237,
+          "accuracy": 0.35714285714285715,
+          "precision_pos": 0.2608695652173913,
+          "recall_pos": 0.8571428571428571
+        },
+        "test_diag": {
+          "n_samples": 28,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_precision": [
+            1.0,
+            1.0,
+            1.0,
+            0.0
+          ],
+          "per_class_recall": [
+            1.0,
+            1.0,
+            1.0,
+            0.0
+          ],
+          "per_class_f1": [
+            1.0,
+            1.0,
+            1.0,
+            0.0
+          ],
+          "per_class_support": [
+            11,
+            8,
+            9,
+            0
+          ],
+          "confusion_matrix": [
+            [
+              11,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              8,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              9,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "test_per_diag_tr": {
+          "depression": {
+            "n_samples": 11,
+            "n_pos": 2,
+            "n_neg": 9,
+            "auroc": 0.6111111111111112,
+            "f1_pos": 0.2222222222222222,
+            "mcc": -0.1336306209562122,
+            "balanced_acc": 0.41666666666666663,
+            "accuracy": 0.36363636363636365,
+            "precision_pos": 0.14285714285714285,
+            "recall_pos": 0.5
+          },
+          "anxiety": {
+            "n_samples": 8,
+            "n_pos": 4,
+            "n_neg": 4,
+            "auroc": 0.875,
+            "f1_pos": 0.7272727272727273,
+            "mcc": 0.3779644730092272,
+            "balanced_acc": 0.625,
+            "accuracy": 0.625,
+            "precision_pos": 0.5714285714285714,
+            "recall_pos": 1.0
+          },
+          "addiction": {
+            "n_samples": 9,
+            "n_pos": 1,
+            "n_neg": 8,
+            "auroc": 1.0,
+            "f1_pos": 0.2,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.1111111111111111,
+            "precision_pos": 0.1111111111111111,
+            "recall_pos": 1.0
+          },
+          "normal": null
+        }
+      },
+      "minus_E_clinical_prior": {
+        "condition": "minus_E_clinical_prior",
+        "excluded_type": 3,
+        "excluded_name": "E_clinical_prior",
+        "scenario": "early",
+        "fold": 0,
+        "seed": 42,
+        "best_val_auroc": 0.9444444444444444,
+        "best_epoch": 15,
+        "epochs_trained": 30,
+        "train_time_sec": 4.4,
+        "test_tr": {
+          "n_samples": 28,
+          "n_pos": 7,
+          "n_neg": 21,
+          "auroc": 0.47619047619047616,
+          "f1_pos": 0.4375,
+          "mcc": 0.2,
+          "balanced_acc": 0.5714285714285714,
+          "accuracy": 0.35714285714285715,
+          "precision_pos": 0.28,
+          "recall_pos": 1.0
+        },
+        "test_diag": {
+          "n_samples": 28,
+          "accuracy": 0.8214285714285714,
+          "macro_f1": 0.8250000000000001,
+          "per_class_precision": [
+            0.8888888888888888,
+            0.875,
+            0.7272727272727273,
+            0.0
+          ],
+          "per_class_recall": [
+            0.7272727272727273,
+            0.875,
+            0.8888888888888888,
+            0.0
+          ],
+          "per_class_f1": [
+            0.8,
+            0.875,
+            0.8,
+            0.0
+          ],
+          "per_class_support": [
+            11,
+            8,
+            9,
+            0
+          ],
+          "confusion_matrix": [
+            [
+              8,
+              0,
+              3,
+              0
+            ],
+            [
+              1,
+              7,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              8,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "test_per_diag_tr": {
+          "depression": {
+            "n_samples": 11,
+            "n_pos": 2,
+            "n_neg": 9,
+            "auroc": 0.5555555555555556,
+            "f1_pos": 0.4,
+            "mcc": 0.28867513459481287,
+            "balanced_acc": 0.6666666666666666,
+            "accuracy": 0.45454545454545453,
+            "precision_pos": 0.25,
+            "recall_pos": 1.0
+          },
+          "anxiety": {
+            "n_samples": 8,
+            "n_pos": 4,
+            "n_neg": 4,
+            "auroc": 0.8125,
+            "f1_pos": 0.6666666666666666,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.5,
+            "precision_pos": 0.5,
+            "recall_pos": 1.0
+          },
+          "addiction": {
+            "n_samples": 9,
+            "n_pos": 1,
+            "n_neg": 8,
+            "auroc": 1.0,
+            "f1_pos": 0.2,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.1111111111111111,
+            "precision_pos": 0.1111111111111111,
+            "recall_pos": 1.0
+          },
+          "normal": null
+        }
+      }
+    },
+    "full": {
+      "full_B6": {
+        "condition": "full_B6",
+        "excluded_type": null,
+        "excluded_name": null,
+        "scenario": "full",
+        "fold": 0,
+        "seed": 42,
+        "best_val_auroc": 0.6666666666666667,
+        "best_epoch": 9,
+        "epochs_trained": 24,
+        "train_time_sec": 3.8,
+        "test_tr": {
+          "n_samples": 28,
+          "n_pos": 7,
+          "n_neg": 21,
+          "auroc": 0.36054421768707484,
+          "f1_pos": 0.0,
+          "mcc": 0.0,
+          "balanced_acc": 0.5,
+          "accuracy": 0.75,
+          "precision_pos": 0.0,
+          "recall_pos": 0.0
+        },
+        "test_diag": {
+          "n_samples": 28,
+          "accuracy": 0.6428571428571429,
+          "macro_f1": 0.6295787545787546,
+          "per_class_precision": [
+            0.6,
+            0.6666666666666666,
+            0.7142857142857143,
+            0.0
+          ],
+          "per_class_recall": [
+            0.8181818181818182,
+            0.5,
+            0.5555555555555556,
+            0.0
+          ],
+          "per_class_f1": [
+            0.6923076923076923,
+            0.5714285714285714,
+            0.625,
+            0.0
+          ],
+          "per_class_support": [
+            11,
+            8,
+            9,
+            0
+          ],
+          "confusion_matrix": [
+            [
+              9,
+              0,
+              2,
+              0
+            ],
+            [
+              4,
+              4,
+              0,
+              0
+            ],
+            [
+              2,
+              2,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "test_per_diag_tr": {
+          "depression": {
+            "n_samples": 11,
+            "n_pos": 2,
+            "n_neg": 9,
+            "auroc": 0.5,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.8181818181818182,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "anxiety": {
+            "n_samples": 8,
+            "n_pos": 4,
+            "n_neg": 4,
+            "auroc": 0.3125,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.5,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "addiction": {
+            "n_samples": 9,
+            "n_pos": 1,
+            "n_neg": 8,
+            "auroc": 0.5,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.8888888888888888,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "normal": null
+        }
+      },
+      "minus_E_trajectory": {
+        "condition": "minus_E_trajectory",
+        "excluded_type": 0,
+        "excluded_name": "E_trajectory",
+        "scenario": "full",
+        "fold": 0,
+        "seed": 42,
+        "best_val_auroc": 0.8888888888888888,
+        "best_epoch": 22,
+        "epochs_trained": 37,
+        "train_time_sec": 5.5,
+        "test_tr": {
+          "n_samples": 28,
+          "n_pos": 7,
+          "n_neg": 21,
+          "auroc": 0.7210884353741497,
+          "f1_pos": 0.2222222222222222,
+          "mcc": 0.16012815380508713,
+          "balanced_acc": 0.5476190476190476,
+          "accuracy": 0.75,
+          "precision_pos": 0.5,
+          "recall_pos": 0.14285714285714285
+        },
+        "test_diag": {
+          "n_samples": 28,
+          "accuracy": 0.9642857142857143,
+          "macro_f1": 0.9607843137254902,
+          "per_class_precision": [
+            1.0,
+            0.8888888888888888,
+            1.0,
+            0.0
+          ],
+          "per_class_recall": [
+            1.0,
+            1.0,
+            0.8888888888888888,
+            0.0
+          ],
+          "per_class_f1": [
+            1.0,
+            0.9411764705882353,
+            0.9411764705882353,
+            0.0
+          ],
+          "per_class_support": [
+            11,
+            8,
+            9,
+            0
+          ],
+          "confusion_matrix": [
+            [
+              11,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              8,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              8,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "test_per_diag_tr": {
+          "depression": {
+            "n_samples": 11,
+            "n_pos": 2,
+            "n_neg": 9,
+            "auroc": 0.5,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.8181818181818182,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "anxiety": {
+            "n_samples": 8,
+            "n_pos": 4,
+            "n_neg": 4,
+            "auroc": 0.625,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.5,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "addiction": {
+            "n_samples": 9,
+            "n_pos": 1,
+            "n_neg": 8,
+            "auroc": 1.0,
+            "f1_pos": 0.6666666666666666,
+            "mcc": 0.6614378277661476,
+            "balanced_acc": 0.9375,
+            "accuracy": 0.8888888888888888,
+            "precision_pos": 0.5,
+            "recall_pos": 1.0
+          },
+          "normal": null
+        }
+      },
+      "minus_E_co-trajectory": {
+        "condition": "minus_E_co-trajectory",
+        "excluded_type": 1,
+        "excluded_name": "E_co-trajectory",
+        "scenario": "full",
+        "fold": 0,
+        "seed": 42,
+        "best_val_auroc": 0.7777777777777778,
+        "best_epoch": 9,
+        "epochs_trained": 24,
+        "train_time_sec": 3.7,
+        "test_tr": {
+          "n_samples": 28,
+          "n_pos": 7,
+          "n_neg": 21,
+          "auroc": 0.380952380952381,
+          "f1_pos": 0.0,
+          "mcc": 0.0,
+          "balanced_acc": 0.5,
+          "accuracy": 0.75,
+          "precision_pos": 0.0,
+          "recall_pos": 0.0
+        },
+        "test_diag": {
+          "n_samples": 28,
+          "accuracy": 0.7142857142857143,
+          "macro_f1": 0.7133893557422969,
+          "per_class_precision": [
+            0.6428571428571429,
+            0.8333333333333334,
+            0.75,
+            0.0
+          ],
+          "per_class_recall": [
+            0.8181818181818182,
+            0.625,
+            0.6666666666666666,
+            0.0
+          ],
+          "per_class_f1": [
+            0.72,
+            0.7142857142857143,
+            0.7058823529411765,
+            0.0
+          ],
+          "per_class_support": [
+            11,
+            8,
+            9,
+            0
+          ],
+          "confusion_matrix": [
+            [
+              9,
+              0,
+              2,
+              0
+            ],
+            [
+              3,
+              5,
+              0,
+              0
+            ],
+            [
+              2,
+              1,
+              6,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "test_per_diag_tr": {
+          "depression": {
+            "n_samples": 11,
+            "n_pos": 2,
+            "n_neg": 9,
+            "auroc": 0.6111111111111112,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.8181818181818182,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "anxiety": {
+            "n_samples": 8,
+            "n_pos": 4,
+            "n_neg": 4,
+            "auroc": 0.3125,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.5,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "addiction": {
+            "n_samples": 9,
+            "n_pos": 1,
+            "n_neg": 8,
+            "auroc": 0.5,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.8888888888888888,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "normal": null
+        }
+      },
+      "minus_E_intervention-response": {
+        "condition": "minus_E_intervention-response",
+        "excluded_type": 2,
+        "excluded_name": "E_intervention-response",
+        "scenario": "full",
+        "fold": 0,
+        "seed": 42,
+        "best_val_auroc": 0.8333333333333334,
+        "best_epoch": 17,
+        "epochs_trained": 32,
+        "train_time_sec": 4.7,
+        "test_tr": {
+          "n_samples": 28,
+          "n_pos": 7,
+          "n_neg": 21,
+          "auroc": 0.7074829931972789,
+          "f1_pos": 0.25,
+          "mcc": 0.3333333333333333,
+          "balanced_acc": 0.5714285714285714,
+          "accuracy": 0.7857142857142857,
+          "precision_pos": 1.0,
+          "recall_pos": 0.14285714285714285
+        },
+        "test_diag": {
+          "n_samples": 28,
+          "accuracy": 0.8928571428571429,
+          "macro_f1": 0.8944272445820434,
+          "per_class_precision": [
+            1.0,
+            0.8888888888888888,
+            0.8,
+            0.0
+          ],
+          "per_class_recall": [
+            0.8181818181818182,
+            1.0,
+            0.8888888888888888,
+            0.0
+          ],
+          "per_class_f1": [
+            0.9,
+            0.9411764705882353,
+            0.8421052631578947,
+            0.0
+          ],
+          "per_class_support": [
+            11,
+            8,
+            9,
+            0
+          ],
+          "confusion_matrix": [
+            [
+              9,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              8,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              8,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "test_per_diag_tr": {
+          "depression": {
+            "n_samples": 11,
+            "n_pos": 2,
+            "n_neg": 9,
+            "auroc": 0.6666666666666666,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.8181818181818182,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "anxiety": {
+            "n_samples": 8,
+            "n_pos": 4,
+            "n_neg": 4,
+            "auroc": 0.625,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.5,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "addiction": {
+            "n_samples": 9,
+            "n_pos": 1,
+            "n_neg": 8,
+            "auroc": 1.0,
+            "f1_pos": 1.0,
+            "mcc": 1.0,
+            "balanced_acc": 1.0,
+            "accuracy": 1.0,
+            "precision_pos": 1.0,
+            "recall_pos": 1.0
+          },
+          "normal": null
+        }
+      },
+      "minus_E_clinical_prior": {
+        "condition": "minus_E_clinical_prior",
+        "excluded_type": 3,
+        "excluded_name": "E_clinical_prior",
+        "scenario": "full",
+        "fold": 0,
+        "seed": 42,
+        "best_val_auroc": 0.7222222222222223,
+        "best_epoch": 9,
+        "epochs_trained": 24,
+        "train_time_sec": 3.6,
+        "test_tr": {
+          "n_samples": 28,
+          "n_pos": 7,
+          "n_neg": 21,
+          "auroc": 0.36734693877551017,
+          "f1_pos": 0.0,
+          "mcc": 0.0,
+          "balanced_acc": 0.5,
+          "accuracy": 0.75,
+          "precision_pos": 0.0,
+          "recall_pos": 0.0
+        },
+        "test_diag": {
+          "n_samples": 28,
+          "accuracy": 0.6071428571428571,
+          "macro_f1": 0.5793650793650793,
+          "per_class_precision": [
+            0.5263157894736842,
+            0.75,
+            0.8,
+            0.0
+          ],
+          "per_class_recall": [
+            0.9090909090909091,
+            0.375,
+            0.4444444444444444,
+            0.0
+          ],
+          "per_class_f1": [
+            0.6666666666666666,
+            0.5,
+            0.5714285714285714,
+            0.0
+          ],
+          "per_class_support": [
+            11,
+            8,
+            9,
+            0
+          ],
+          "confusion_matrix": [
+            [
+              10,
+              0,
+              1,
+              0
+            ],
+            [
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              1,
+              4,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "test_per_diag_tr": {
+          "depression": {
+            "n_samples": 11,
+            "n_pos": 2,
+            "n_neg": 9,
+            "auroc": 0.5,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.8181818181818182,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "anxiety": {
+            "n_samples": 8,
+            "n_pos": 4,
+            "n_neg": 4,
+            "auroc": 0.3125,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.5,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "addiction": {
+            "n_samples": 9,
+            "n_pos": 1,
+            "n_neg": 8,
+            "auroc": 0.5,
+            "f1_pos": 0.0,
+            "mcc": 0.0,
+            "balanced_acc": 0.5,
+            "accuracy": 0.8888888888888888,
+            "precision_pos": 0.0,
+            "recall_pos": 0.0
+          },
+          "normal": null
+        }
+      }
+    }
+  }
+}

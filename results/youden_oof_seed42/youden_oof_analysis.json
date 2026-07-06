@@ -1,0 +1,118 @@
+{
+  "auroc_oof": 0.4882,
+  "youden_threshold": 0.4787,
+  "n_total": 140,
+  "n_pos": 35,
+  "prob_min": 0.4378,
+  "prob_max": 0.5858,
+  "prob_mean": 0.5162,
+  "prob_std": 0.0361,
+  "thresholds": {
+    "0.5": {
+      "threshold": 0.5,
+      "TP": 21,
+      "TN": 37,
+      "FP": 68,
+      "FN": 14,
+      "recall_pos": 0.6,
+      "precision_pos": 0.236,
+      "f1_pos": 0.339,
+      "mcc": -0.043,
+      "bal_acc": 0.476
+    },
+    "youden_0.4787": {
+      "threshold": 0.4787,
+      "TP": 31,
+      "TN": 24,
+      "FP": 81,
+      "FN": 4,
+      "recall_pos": 0.886,
+      "precision_pos": 0.277,
+      "f1_pos": 0.422,
+      "mcc": 0.124,
+      "bal_acc": 0.557
+    },
+    "0.49": {
+      "threshold": 0.49,
+      "TP": 25,
+      "TN": 35,
+      "FP": 70,
+      "FN": 10,
+      "recall_pos": 0.714,
+      "precision_pos": 0.263,
+      "f1_pos": 0.385,
+      "mcc": 0.044,
+      "bal_acc": 0.524
+    },
+    "0.48": {
+      "threshold": 0.48,
+      "TP": 29,
+      "TN": 25,
+      "FP": 80,
+      "FN": 6,
+      "recall_pos": 0.829,
+      "precision_pos": 0.266,
+      "f1_pos": 0.403,
+      "mcc": 0.07,
+      "bal_acc": 0.533
+    },
+    "0.45": {
+      "threshold": 0.45,
+      "TP": 34,
+      "TN": 6,
+      "FP": 99,
+      "FN": 1,
+      "recall_pos": 0.971,
+      "precision_pos": 0.256,
+      "f1_pos": 0.405,
+      "mcc": 0.057,
+      "bal_acc": 0.514
+    }
+  },
+  "per_diag_baseline": {
+    "depression": {
+      "n": 49,
+      "n_pos": 10,
+      "TP": 5,
+      "FN": 5,
+      "recall": 0.5
+    },
+    "anxiety": {
+      "n": 47,
+      "n_pos": 15,
+      "TP": 11,
+      "FN": 4,
+      "recall": 0.733
+    },
+    "addiction": {
+      "n": 44,
+      "n_pos": 10,
+      "TP": 5,
+      "FN": 5,
+      "recall": 0.5
+    }
+  },
+  "per_diag_youden": {
+    "depression": {
+      "n": 49,
+      "n_pos": 10,
+      "TP": 7,
+      "FN": 3,
+      "recall": 0.7
+    },
+    "anxiety": {
+      "n": 47,
+      "n_pos": 15,
+      "TP": 15,
+      "FN": 0,
+      "recall": 1.0
+    },
+    "addiction": {
+      "n": 44,
+      "n_pos": 10,
+      "TP": 9,
+      "FN": 1,
+      "recall": 0.9
+    }
+  }
+}

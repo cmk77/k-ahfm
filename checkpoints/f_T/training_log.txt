@@ -1,0 +1,5 @@
+[epoch 1] train loss 2.3197  val loss 2.1672  acc 0.3391  macro F1 0.3236  V-r 0.525  A-r 0.221  (59s)
+[epoch 2] train loss 2.0548  val loss 2.1182  acc 0.3505  macro F1 0.3355  V-r 0.537  A-r 0.229  (62s)
+[epoch 3] train loss 1.9087  val loss 2.0932  acc 0.3677  macro F1 0.3436  V-r 0.541  A-r 0.225  (64s)
+[epoch 4] train loss 1.7679  val loss 2.1207  acc 0.3728  macro F1 0.3494  V-r 0.539  A-r 0.223  (64s)
+[epoch 5] train loss 1.6523  val loss 2.1609  acc 0.3751  macro F1 0.3505  V-r 0.538  A-r 0.221  (64s)

@@ -1,0 +1,63 @@
+{
+  "paired_sim_mean": 0.19814333319664001,
+  "paired_sim_std": 0.13569366931915283,
+  "random_sim_mean": 0.034679051488637924,
+  "random_sim_std": 0.02554059587419033,
+  "alignment_gap": 0.1634642817080021,
+  "within_clip_sim_mean": 0.14482742547988892,
+  "across_clip_sim_mean": 0.034570857882499695,
+  "within_clip_gap": 0.11025656759738922,
+  "same_emotion_sim_mean": 0.05246656760573387,
+  "diff_emotion_sim_mean": 0.029902223497629166,
+  "emotion_alignment_gap": 0.022564344108104706,
+  "retrieval_i2t_R@1": 0.0047,
+  "retrieval_t2i_R@1": 0.0032,
+  "retrieval_i2t_R@5": 0.0202,
+  "retrieval_t2i_R@5": 0.0165,
+  "retrieval_i2t_R@10": 0.0298,
+  "retrieval_t2i_R@10": 0.0266,
+  "retrieval_i2t_median_rank": 1147.0,
+  "retrieval_t2i_median_rank": 1176.0,
+  "per_emotion": {
+    "angry": {
+      "n_samples": 1066,
+      "paired_sim_mean": 0.21456381678581238,
+      "paired_sim_std": 0.15760104358196259
+    },
+    "contempt": {
+      "n_samples": 330,
+      "paired_sim_mean": 0.18485017120838165,
+      "paired_sim_std": 0.1236979067325592
+    },
+    "dislike": {
+      "n_samples": 3693,
+      "paired_sim_mean": 0.19574084877967834,
+      "paired_sim_std": 0.13669413328170776
+    },
+    "fear": {
+      "n_samples": 336,
+      "paired_sim_mean": 0.17773063480854034,
+      "paired_sim_std": 0.12751583755016327
+    },
+    "happy": {
+      "n_samples": 1951,
+      "paired_sim_mean": 0.20285391807556152,
+      "paired_sim_std": 0.13298651576042175
+    },
+    "neutral": {
+      "n_samples": 720,
+      "paired_sim_mean": 0.19300121068954468,
+      "paired_sim_std": 0.12376465648412704
+    },
+    "sad": {
+      "n_samples": 804,
+      "paired_sim_mean": 0.20673868060112,
+      "paired_sim_std": 0.13507910072803497
+    },
+    "surprise": {
+      "n_samples": 1100,
+      "paired_sim_mean": 0.1892477571964264,
+      "paired_sim_std": 0.12509575486183167
+    }
+  }
+}

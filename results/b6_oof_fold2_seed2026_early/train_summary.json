@@ -1,0 +1,116 @@
+{
+  "model": "B6",
+  "scenario": "early",
+  "fold": 2,
+  "seed": 2026,
+  "best_val_auroc": 1.0,
+  "best_epoch": 2,
+  "epochs_trained": 17,
+  "train_time_sec": 1.2254443168640137,
+  "test_tr_metrics": {
+    "n_samples": 28,
+    "n_pos": 7,
+    "n_neg": 21,
+    "auroc": 0.5714285714285714,
+    "f1_pos": 0.0,
+    "mcc": 0.0,
+    "balanced_acc": 0.5,
+    "accuracy": 0.75,
+    "precision_pos": 0.0,
+    "recall_pos": 0.0
+  },
+  "test_diag_metrics": {
+    "n_samples": 28,
+    "accuracy": 0.39285714285714285,
+    "macro_f1": 0.18803418803418803,
+    "per_class_precision": [
+      0.39285714285714285,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "per_class_recall": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "per_class_f1": [
+      0.5641025641025641,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "per_class_support": [
+      11,
+      8,
+      9,
+      0
+    ],
+    "confusion_matrix": [
+      [
+        11,
+        0,
+        0,
+        0
+      ],
+      [
+        8,
+        0,
+        0,
+        0
+      ],
+      [
+        9,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "test_per_diag_tr": {
+    "depression": {
+      "n_samples": 11,
+      "n_pos": 3,
+      "n_neg": 8,
+      "auroc": 0.5416666666666666,
+      "f1_pos": 0.0,
+      "mcc": 0.0,
+      "balanced_acc": 0.5,
+      "accuracy": 0.7272727272727273,
+      "precision_pos": 0.0,
+      "recall_pos": 0.0
+    },
+    "anxiety": {
+      "n_samples": 8,
+      "n_pos": 1,
+      "n_neg": 7,
+      "auroc": 0.1428571428571429,
+      "f1_pos": 0.0,
+      "mcc": 0.0,
+      "balanced_acc": 0.5,
+      "accuracy": 0.875,
+      "precision_pos": 0.0,
+      "recall_pos": 0.0
+    },
+    "addiction": {
+      "n_samples": 9,
+      "n_pos": 3,
+      "n_neg": 6,
+      "auroc": 0.5555555555555556,
+      "f1_pos": 0.0,
+      "mcc": 0.0,
+      "balanced_acc": 0.5,
+      "accuracy": 0.6666666666666666,
+      "precision_pos": 0.0,
+      "recall_pos": 0.0
+    },
+    "normal": null
+  }
+}

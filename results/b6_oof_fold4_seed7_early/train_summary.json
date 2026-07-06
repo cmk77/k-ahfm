@@ -1,0 +1,116 @@
+{
+  "model": "B6",
+  "scenario": "early",
+  "fold": 4,
+  "seed": 7,
+  "best_val_auroc": 1.0,
+  "best_epoch": 20,
+  "epochs_trained": 35,
+  "train_time_sec": 2.0964722633361816,
+  "test_tr_metrics": {
+    "n_samples": 28,
+    "n_pos": 7,
+    "n_neg": 21,
+    "auroc": 0.6122448979591837,
+    "f1_pos": 0.42424242424242425,
+    "mcc": 0.16012815380508713,
+    "balanced_acc": 0.5476190476190477,
+    "accuracy": 0.32142857142857145,
+    "precision_pos": 0.2692307692307692,
+    "recall_pos": 1.0
+  },
+  "test_diag_metrics": {
+    "n_samples": 28,
+    "accuracy": 0.8571428571428571,
+    "macro_f1": 0.8177196804647785,
+    "per_class_precision": [
+      0.5714285714285714,
+      1.0,
+      0.875,
+      0.0
+    ],
+    "per_class_recall": [
+      0.8,
+      0.9285714285714286,
+      0.7777777777777778,
+      0.0
+    ],
+    "per_class_f1": [
+      0.6666666666666666,
+      0.9629629629629629,
+      0.8235294117647058,
+      0.0
+    ],
+    "per_class_support": [
+      5,
+      14,
+      9,
+      0
+    ],
+    "confusion_matrix": [
+      [
+        4,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        13,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        7,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "test_per_diag_tr": {
+    "depression": {
+      "n_samples": 5,
+      "n_pos": 1,
+      "n_neg": 4,
+      "auroc": 0.25,
+      "f1_pos": 0.4,
+      "mcc": 0.25,
+      "balanced_acc": 0.625,
+      "accuracy": 0.4,
+      "precision_pos": 0.25,
+      "recall_pos": 1.0
+    },
+    "anxiety": {
+      "n_samples": 14,
+      "n_pos": 4,
+      "n_neg": 10,
+      "auroc": 0.7,
+      "f1_pos": 0.4444444444444444,
+      "mcc": 0.0,
+      "balanced_acc": 0.5,
+      "accuracy": 0.2857142857142857,
+      "precision_pos": 0.2857142857142857,
+      "recall_pos": 1.0
+    },
+    "addiction": {
+      "n_samples": 9,
+      "n_pos": 2,
+      "n_neg": 7,
+      "auroc": 0.5714285714285714,
+      "f1_pos": 0.4,
+      "mcc": 0.1889822365046136,
+      "balanced_acc": 0.5714285714285714,
+      "accuracy": 0.3333333333333333,
+      "precision_pos": 0.25,
+      "recall_pos": 1.0
+    },
+    "normal": null
+  }
+}

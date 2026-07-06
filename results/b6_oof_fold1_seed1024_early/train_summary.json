@@ -1,0 +1,116 @@
+{
+  "model": "B6",
+  "scenario": "early",
+  "fold": 1,
+  "seed": 1024,
+  "best_val_auroc": 1.0,
+  "best_epoch": 1,
+  "epochs_trained": 16,
+  "train_time_sec": 1.167506217956543,
+  "test_tr_metrics": {
+    "n_samples": 28,
+    "n_pos": 7,
+    "n_neg": 21,
+    "auroc": 0.5578231292517006,
+    "f1_pos": 0.0,
+    "mcc": 0.0,
+    "balanced_acc": 0.5,
+    "accuracy": 0.75,
+    "precision_pos": 0.0,
+    "recall_pos": 0.0
+  },
+  "test_diag_metrics": {
+    "n_samples": 28,
+    "accuracy": 0.35714285714285715,
+    "macro_f1": 0.17543859649122806,
+    "per_class_precision": [
+      0.0,
+      0.35714285714285715,
+      0.0,
+      0.0
+    ],
+    "per_class_recall": [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "per_class_f1": [
+      0.0,
+      0.5263157894736842,
+      0.0,
+      0.0
+    ],
+    "per_class_support": [
+      11,
+      10,
+      7,
+      0
+    ],
+    "confusion_matrix": [
+      [
+        0,
+        11,
+        0,
+        0
+      ],
+      [
+        0,
+        10,
+        0,
+        0
+      ],
+      [
+        0,
+        7,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "test_per_diag_tr": {
+    "depression": {
+      "n_samples": 11,
+      "n_pos": 2,
+      "n_neg": 9,
+      "auroc": 0.4444444444444444,
+      "f1_pos": 0.0,
+      "mcc": 0.0,
+      "balanced_acc": 0.5,
+      "accuracy": 0.8181818181818182,
+      "precision_pos": 0.0,
+      "recall_pos": 0.0
+    },
+    "anxiety": {
+      "n_samples": 10,
+      "n_pos": 4,
+      "n_neg": 6,
+      "auroc": 0.75,
+      "f1_pos": 0.0,
+      "mcc": 0.0,
+      "balanced_acc": 0.5,
+      "accuracy": 0.6,
+      "precision_pos": 0.0,
+      "recall_pos": 0.0
+    },
+    "addiction": {
+      "n_samples": 7,
+      "n_pos": 1,
+      "n_neg": 6,
+      "auroc": 0.5,
+      "f1_pos": 0.0,
+      "mcc": 0.0,
+      "balanced_acc": 0.5,
+      "accuracy": 0.8571428571428571,
+      "precision_pos": 0.0,
+      "recall_pos": 0.0
+    },
+    "normal": null
+  }
+}

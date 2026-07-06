@@ -1,0 +1,324 @@
+"""
+C-block 2차 그래프 모델 (B6v2 지원).
+
+[v2 변경]
+    - B6v2 모델 추가: 569-dim 노드 feature + 5종 hyperedge
+    - KAHFMClinic의 num_edge_types를 NUM_EDGE_TYPES (=5)로 통일
+    - B6 (v1)와 B6v2 (v2)가 같은 모델 클래스 사용 (input dim만 다름)
+"""
+
+from __future__ import annotations
+
+from typing import Optional
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+from graph.build_graph import (
+    NODE_FEATURE_DIM_V1,
+    NODE_FEATURE_DIM_V2,
+    NUM_EDGE_TYPES,
+)
+
+
+# ============================================================================
+# Feature Projector (입력 차원 가변)
+# ============================================================================
+class FeatureProjector(nn.Module):
+    def __init__(self, input_dim: int = NODE_FEATURE_DIM_V1, hidden_dim: int = 128, dropout: float = 0.3):
+        super().__init__()
+        self.norm = nn.LayerNorm(input_dim)
+        self.proj = nn.Sequential(
+            nn.Linear(input_dim, hidden_dim),
+            nn.LayerNorm(hidden_dim),
+            nn.GELU(),
+            nn.Dropout(dropout),
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x = self.norm(x)
+        return self.proj(x)
+
+
+# ============================================================================
+# Graph / Hypergraph Conv layers (변동 없음)
+# ============================================================================
+class GraphConvLayer(nn.Module):
+    def __init__(self, in_dim: int, out_dim: int, dropout: float = 0.3):
+        super().__init__()
+        self.weight = nn.Linear(in_dim, out_dim)
+        self.norm = nn.LayerNorm(out_dim)
+        self.dropout = nn.Dropout(dropout)
+
+    def forward(self, X, A, node_mask):
+        mask_2d = node_mask.unsqueeze(1) & node_mask.unsqueeze(2)
+        A_masked = A * mask_2d.float()
+        D = A_masked.sum(dim=-1, keepdim=True).clamp(min=1e-6)
+        D_inv_sqrt = D.pow(-0.5)
+        A_norm = D_inv_sqrt * A_masked * D_inv_sqrt.transpose(-1, -2)
+        out = torch.bmm(A_norm, X)
+        out = self.weight(out)
+        out = self.norm(out)
+        out = F.gelu(out)
+        out = self.dropout(out)
+        out = out * node_mask.unsqueeze(-1).float()
+        return out
+
+
+class HypergraphConvLayer(nn.Module):
+    def __init__(self, in_dim: int, out_dim: int, dropout: float = 0.3):
+        super().__init__()
+        self.weight = nn.Linear(in_dim, out_dim)
+        self.norm = nn.LayerNorm(out_dim)
+        self.dropout = nn.Dropout(dropout)
+
+    def forward(self, X, H, node_mask, edge_mask, edge_weights=None):
+        B, N, E = H.shape
+        H = H * node_mask.unsqueeze(-1).float() * edge_mask.unsqueeze(1).float()
+        if edge_weights is None:
+            edge_weights = torch.ones(B, E, device=H.device) * edge_mask.float()
+        else:
+            edge_weights = edge_weights * edge_mask.float()
+        D_e = H.sum(dim=1).clamp(min=1e-6)
+        D_e_inv = 1.0 / D_e
+        D_v = (H * edge_weights.unsqueeze(1)).sum(dim=-1).clamp(min=1e-6)
+        D_v_inv_sqrt = D_v.pow(-0.5)
+        X_v = X * D_v_inv_sqrt.unsqueeze(-1)
+        msg = torch.bmm(H.transpose(1, 2), X_v)
+        msg = msg * (edge_weights * D_e_inv).unsqueeze(-1)
+        out = torch.bmm(H, msg)
+        out = out * D_v_inv_sqrt.unsqueeze(-1)
+        out = self.weight(out)
+        out = self.norm(out)
+        out = F.gelu(out)
+        out = self.dropout(out)
+        out = out * node_mask.unsqueeze(-1).float()
+        return out
+
+
+# ============================================================================
+# Attention Pool + Multi-task Head (변동 없음)
+# ============================================================================
+class AttentionPool(nn.Module):
+    def __init__(self, dim: int):
+        super().__init__()
+        self.attn = nn.Sequential(
+            nn.Linear(dim, dim // 2),
+            nn.GELU(),
+            nn.Linear(dim // 2, 1),
+        )
+
+    def forward(self, X, mask):
+        scores = self.attn(X).squeeze(-1)
+        scores = scores.masked_fill(~mask, float('-inf'))
+        weights = F.softmax(scores, dim=-1).unsqueeze(-1)
+        return (X * weights).sum(dim=1)
+
+
+class MultiTaskHead(nn.Module):
+    def __init__(self, embed_dim: int, severity_dim: int = 6,
+                 hidden_dim: int = 64, dropout: float = 0.4):
+        super().__init__()
+        in_dim = embed_dim + severity_dim
+        self.shared = nn.Sequential(
+            nn.Linear(in_dim, hidden_dim),
+            nn.LayerNorm(hidden_dim),
+            nn.GELU(),
+            nn.Dropout(dropout),
+        )
+        self.tr_head = nn.Linear(hidden_dim, 1)
+        self.diag_head = nn.Linear(hidden_dim, 4)
+
+    def forward(self, patient_emb, severity):
+        x = torch.cat([patient_emb, severity], dim=-1)
+        h = self.shared(x)
+        return {
+            'tr_logit': self.tr_head(h).squeeze(-1),
+            'diag_logits': self.diag_head(h),
+            'hidden': h,
+        }
+
+
+# ============================================================================
+# B4: Temporal GCN
+# ============================================================================
+class TemporalGCN(nn.Module):
+    def __init__(self, hidden_dim: int = 128, dropout: float = 0.3,
+                 input_dim: int = NODE_FEATURE_DIM_V1):
+        super().__init__()
+        self.projector = FeatureProjector(input_dim, hidden_dim, dropout)
+        self.gcn1 = GraphConvLayer(hidden_dim, hidden_dim, dropout)
+        self.gcn2 = GraphConvLayer(hidden_dim, hidden_dim, dropout)
+        self.pool = AttentionPool(hidden_dim)
+        self.head = MultiTaskHead(hidden_dim, severity_dim=6, dropout=0.4)
+
+    def forward(self, batch):
+        X = self.projector(batch['node_features'])
+        A = batch['adjacency']
+        node_mask = batch['node_mask']
+        X = self.gcn1(X, A, node_mask)
+        X = self.gcn2(X, A, node_mask)
+        patient_emb = self.pool(X, node_mask)
+        severity = torch.cat([batch['severity_first_3'], batch['severity_mean_input']], dim=-1)
+        return self.head(patient_emb, severity)
+
+
+# ============================================================================
+# B5: HYNMDR-style
+# ============================================================================
+class HYNMDRStyle(nn.Module):
+    def __init__(self, hidden_dim: int = 128, dropout: float = 0.3,
+                 input_dim: int = NODE_FEATURE_DIM_V1):
+        super().__init__()
+        self.projector = FeatureProjector(input_dim, hidden_dim, dropout)
+        self.hgnn1 = HypergraphConvLayer(hidden_dim, hidden_dim, dropout)
+        self.hgnn2 = HypergraphConvLayer(hidden_dim, hidden_dim, dropout)
+        self.pool = AttentionPool(hidden_dim)
+        self.head = MultiTaskHead(hidden_dim, severity_dim=6, dropout=0.4)
+
+    def forward(self, batch):
+        X = self.projector(batch['node_features'])
+        H = batch['incidence']
+        node_mask = batch['node_mask']
+        edge_mask = batch['edge_mask']
+        X = self.hgnn1(X, H, node_mask, edge_mask)
+        X = self.hgnn2(X, H, node_mask, edge_mask)
+        patient_emb = self.pool(X, node_mask)
+        severity = torch.cat([batch['severity_first_3'], batch['severity_mean_input']], dim=-1)
+        return self.head(patient_emb, severity)
+
+
+# ============================================================================
+# B6 / B6v2: K-AHFM-Clinic (input_dim에 따라 v1/v2 자동 분기)
+# ============================================================================
+class KAHFMClinic(nn.Module):
+    """B6 (v1, 559-dim, 4 edge types) or B6v2 (569-dim, 5 edge types)."""
+
+    def __init__(self, hidden_dim: int = 128, dropout: float = 0.3,
+                 input_dim: int = NODE_FEATURE_DIM_V1,
+                 num_edge_types: int = NUM_EDGE_TYPES):
+        super().__init__()
+        self.input_dim = input_dim
+        self.num_edge_types = num_edge_types
+        self.projector = FeatureProjector(input_dim, hidden_dim, dropout)
+
+        self.edge_type_embedding = nn.Embedding(num_edge_types, hidden_dim // 4)
+        self.context_proj = nn.Sequential(
+            nn.Linear(hidden_dim + 6, hidden_dim // 4),
+            nn.LayerNorm(hidden_dim // 4),
+            nn.GELU(),
+        )
+        self.attn_score = nn.Sequential(
+            nn.Linear(hidden_dim // 4 + hidden_dim // 4, hidden_dim // 4),
+            nn.GELU(),
+            nn.Linear(hidden_dim // 4, 1),
+        )
+
+        self.hgnn1 = HypergraphConvLayer(hidden_dim, hidden_dim, dropout)
+        self.hgnn2 = HypergraphConvLayer(hidden_dim, hidden_dim, dropout)
+        self.pool = AttentionPool(hidden_dim)
+        self.head = MultiTaskHead(hidden_dim, severity_dim=6, dropout=0.4)
+
+    def compute_edge_weights(self, X, edge_types, edge_mask, severity, node_mask):
+        B, E = edge_types.shape
+        node_mean = (X * node_mask.unsqueeze(-1).float()).sum(1) / node_mask.sum(-1, keepdim=True).clamp(min=1).float()
+        context = torch.cat([node_mean, severity], dim=-1)
+        context_emb = self.context_proj(context)
+        type_emb = self.edge_type_embedding(edge_types)
+        context_emb_rep = context_emb.unsqueeze(1).expand(-1, E, -1)
+        attn_input = torch.cat([type_emb, context_emb_rep], dim=-1)
+        scores = self.attn_score(attn_input).squeeze(-1)
+        scores = scores.masked_fill(~edge_mask, float('-inf'))
+        weights = F.softmax(scores, dim=-1)
+        n_edges = edge_mask.sum(-1, keepdim=True).float().clamp(min=1)
+        weights = weights * n_edges
+        return weights
+
+    def forward(self, batch):
+        X = self.projector(batch['node_features'])
+        H = batch['incidence']
+        node_mask = batch['node_mask']
+        edge_mask = batch['edge_mask']
+        edge_types = batch['edge_types']
+        severity = torch.cat([batch['severity_first_3'], batch['severity_mean_input']], dim=-1)
+
+        edge_weights = self.compute_edge_weights(X, edge_types, edge_mask, severity, node_mask)
+        X = self.hgnn1(X, H, node_mask, edge_mask, edge_weights)
+
+        edge_weights = self.compute_edge_weights(X, edge_types, edge_mask, severity, node_mask)
+        X = self.hgnn2(X, H, node_mask, edge_mask, edge_weights)
+
+        patient_emb = self.pool(X, node_mask)
+        return self.head(patient_emb, severity)
+
+
+# ============================================================================
+# Loss
+# ============================================================================
+def focal_binary_loss(logits, targets, valid_mask, alpha: float = 0.75, gamma: float = 2.0):
+    if valid_mask.sum() == 0:
+        return torch.tensor(0.0, device=logits.device, requires_grad=True)
+    valid_logits = logits[valid_mask]
+    valid_targets = targets[valid_mask].float()
+    bce = F.binary_cross_entropy_with_logits(valid_logits, valid_targets, reduction='none')
+    p = torch.sigmoid(valid_logits)
+    pt = torch.where(valid_targets > 0.5, p, 1 - p)
+    focal_weight = (1 - pt) ** gamma
+    alpha_t = torch.where(
+        valid_targets > 0.5,
+        torch.full_like(valid_targets, alpha),
+        torch.full_like(valid_targets, 1 - alpha),
+    )
+    return (alpha_t * focal_weight * bce).mean()
+
+
+def multitask_loss(outputs, batch,
+                   lambda_tr: float = 1.0, lambda_diag: float = 0.3,
+                   focal_alpha: float = 0.75, focal_gamma: float = 2.0,
+                   diag_class_weights=None):
+    tr_logit = outputs['tr_logit']
+    diag_logits = outputs['diag_logits']
+    tr_target = batch['tr_label']
+    tr_valid = batch['tr_valid'].bool()
+    diag_target = batch['diag_label']
+
+    loss_tr = focal_binary_loss(tr_logit, tr_target, tr_valid, focal_alpha, focal_gamma)
+    loss_diag = F.cross_entropy(diag_logits, diag_target, weight=diag_class_weights)
+    total = lambda_tr * loss_tr + lambda_diag * loss_diag
+    return total, {
+        'total': total.item(),
+        'loss_tr': loss_tr.item() if isinstance(loss_tr, torch.Tensor) else 0.0,
+        'loss_diag': loss_diag.item(),
+        'n_tr_valid': int(tr_valid.sum().item()),
+    }
+
+
+# ============================================================================
+# Model factory (input_dim 자동 결정)
+# ============================================================================
+MODEL_INPUT_DIMS = {
+    'B4': NODE_FEATURE_DIM_V1,    # 559
+    'B5': NODE_FEATURE_DIM_V1,    # 559
+    'B6': NODE_FEATURE_DIM_V1,    # 559 (4 edge types)
+    'B6v2': NODE_FEATURE_DIM_V2,  # 569 (5 edge types + emotion features)
+}
+
+MODEL_REGISTRY = {
+    'B4': TemporalGCN,
+    'B5': HYNMDRStyle,
+    'B6': KAHFMClinic,
+    'B6v2': KAHFMClinic,           # 같은 클래스 사용 (input_dim과 num_edge_types 다름)
+}
+
+
+def build_graph_model(model_name: str, **kwargs):
+    if model_name not in MODEL_REGISTRY:
+        raise ValueError(f"Unknown graph model: {model_name}")
+
+    # 자동으로 input_dim 결정
+    if 'input_dim' not in kwargs:
+        kwargs['input_dim'] = MODEL_INPUT_DIMS[model_name]
+
+    # B6와 B6v2는 같은 NUM_EDGE_TYPES (5) 사용; data에서 실제 type만 다름
+    return MODEL_REGISTRY[model_name](**kwargs)

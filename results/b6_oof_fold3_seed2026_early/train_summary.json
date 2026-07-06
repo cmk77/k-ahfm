@@ -1,0 +1,116 @@
+{
+  "model": "B6",
+  "scenario": "early",
+  "fold": 3,
+  "seed": 2026,
+  "best_val_auroc": 0.7777777777777778,
+  "best_epoch": 2,
+  "epochs_trained": 17,
+  "train_time_sec": 1.3996458053588867,
+  "test_tr_metrics": {
+    "n_samples": 28,
+    "n_pos": 7,
+    "n_neg": 21,
+    "auroc": 0.6326530612244898,
+    "f1_pos": 0.4,
+    "mcc": 0.0,
+    "balanced_acc": 0.5,
+    "accuracy": 0.25,
+    "precision_pos": 0.25,
+    "recall_pos": 1.0
+  },
+  "test_diag_metrics": {
+    "n_samples": 28,
+    "accuracy": 0.5357142857142857,
+    "macro_f1": 0.46913580246913583,
+    "per_class_precision": [
+      0.0,
+      0.35,
+      1.0,
+      0.0
+    ],
+    "per_class_recall": [
+      0.0,
+      1.0,
+      0.8,
+      0.0
+    ],
+    "per_class_f1": [
+      0.0,
+      0.5185185185185185,
+      0.8888888888888888,
+      0.0
+    ],
+    "per_class_support": [
+      11,
+      7,
+      10,
+      0
+    ],
+    "confusion_matrix": [
+      [
+        0,
+        11,
+        0,
+        0
+      ],
+      [
+        0,
+        7,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        8,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "test_per_diag_tr": {
+    "depression": {
+      "n_samples": 11,
+      "n_pos": 2,
+      "n_neg": 9,
+      "auroc": 0.7222222222222222,
+      "f1_pos": 0.3076923076923077,
+      "mcc": 0.0,
+      "balanced_acc": 0.5,
+      "accuracy": 0.18181818181818182,
+      "precision_pos": 0.18181818181818182,
+      "recall_pos": 1.0
+    },
+    "anxiety": {
+      "n_samples": 7,
+      "n_pos": 2,
+      "n_neg": 5,
+      "auroc": 0.5,
+      "f1_pos": 0.4444444444444444,
+      "mcc": 0.0,
+      "balanced_acc": 0.5,
+      "accuracy": 0.2857142857142857,
+      "precision_pos": 0.2857142857142857,
+      "recall_pos": 1.0
+    },
+    "addiction": {
+      "n_samples": 10,
+      "n_pos": 3,
+      "n_neg": 7,
+      "auroc": 0.7619047619047619,
+      "f1_pos": 0.46153846153846156,
+      "mcc": 0.0,
+      "balanced_acc": 0.5,
+      "accuracy": 0.3,
+      "precision_pos": 0.3,
+      "recall_pos": 1.0
+    },
+    "normal": null
+  }
+}

@@ -1,0 +1,21 @@
+# 1. 파이썬 및 가상환경 (의존성은 requirements.txt로 따로 관리)
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# 2. 환경 변수 및 보안 키 (절대 공유되면 안 되는 파일)
+.env
+secret.json
+
+# 3. AI 모델 웨이트 및 대용량 데이터 (Git LFS로 별도 관리하거나 무시)
+*.pt
+*.pth
+*.safetensors
+*.onnx
+data/
+datasets/
+
+# 4. 에디터 설정 파일 (개인 PC 환경 설정)
+.idea/
+.vscode/
