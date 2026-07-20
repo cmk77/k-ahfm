@@ -1,16 +1,0 @@
-Script started on 2026-06-11 13:52:34+09:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="120" LINES="30"]
-[?2004h]0;mozi@PCN-RND-CMK: <repo>[01;32mmozi@PCN-RND-CMK[00m:[01;34m<repo>[00m$ grep -n "gap\|0.05\|threshold\|filter\|R@1\|recall_at\|subset\|min_sim" scripts/04_alignment_eval.py[A]0;mozi@PCN-RND-CMK: <repo>[01;32mmozi@PCN-RND-CMK[00m:[01;34m<repo>[00m$ [K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[7mscript venv_setup_20260611.log[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cscript venv_setup_20260611.log[C_.log1.log
-[?2004lScript started, output log file is 'venv_setup_20260611_1.log'.
-[?2004h]0;mozi@PCN-RND-CMK: <repo>[01;32mmozi@PCN-RND-CMK[00m:[01;34m<repo>[00m$ 2[K[7mscript venv_setup_20260611.log[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cscript venv_setup_20260611.log_.log2.log
-[?2004lScript started, output log file is 'venv_setup_20260611_2.log'.
-[?2004h]0;mozi@PCN-RND-CMK: <repo>[01;32mmozi@PCN-RND-CMK[00m:[01;34m<repo>[00m$ exit
-[?2004lexit
-Script done.
-[?2004h]0;mozi@PCN-RND-CMK: <repo>[01;32mmozi@PCN-RND-CMK[00m:[01;34m<repo>[00m$ exc[Kit
-[?2004lexit
-Script done.
-[?2004h]0;mozi@PCN-RND-CMK: <repo>[01;32mmozi@PCN-RND-CMK[00m:[01;34m<repo>[00m$ exit
-[?2004lexit
-
-Script done on 2026-06-11 13:54:40+09:00 [COMMAND_EXIT_CODE="0"]

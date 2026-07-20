@@ -1,0 +1,30 @@
+# 대용량/로컬 전용 디렉토리 — 이미지에 포함하지 않음
+.git/
+venv/
+data/
+datasets/
+checkpoints/
+logs/
+outputs/
+notebooks/
+backup/
+
+# 파이썬 캐시
+__pycache__/
+*.pyc
+
+# 모델 웨이트 (AI Hub 데이터로 학습된 산출물)
+*.pt
+*.pth
+*.safetensors
+*.onnx
+
+# 로그, 임시 파일
+*.log
+*.pid
+*:Zone.Identifier
+
+# Docker 자체 파일
+Dockerfile
+.dockerignore
+.github/

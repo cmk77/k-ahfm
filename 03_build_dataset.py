@@ -166,7 +166,7 @@ def main():
         'seed': args.seed,
         'n_longitudinal_samples': len(samples),
         'diagnosis_session_count': dict(Counter(s.diagnosis for s in all_sessions)),
-        'diagnosis_patient_count': dict(Counter(split_result.patient_to_diagnosis.values())),
+        'diagnosis_patient_count': dict(Counter(split_result.patient_to_label.values())),
         'diagnosis_sample_count': dict(sample_diag),
         'observed_length_distribution': dict(len_counter),
     }

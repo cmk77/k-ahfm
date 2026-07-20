@@ -19,3 +19,12 @@ datasets/
 # 4. 에디터 설정 파일 (개인 PC 환경 설정)
 .idea/
 .vscode/
+
+# 5. Windows/WSL 다운로드 흔적
+*:Zone.Identifier
+
+# 6. 로그 / 프로세스 파일 / 백업
+*.log
+*.pid
+backup/
+logs/
