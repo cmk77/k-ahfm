@@ -8,7 +8,7 @@
 
 ## 빠른 데모 (데이터 불필요)
 
-AI Hub 데이터 승인 없이, 설치 3줄로 바로 돌려볼 수 있습니다.
+AI Hub 데이터 다운로드 없이, 설치 3줄로 바로 돌려볼 수 있습니다.
 
 ```bash
 pip install torch "numpy<2" scikit-learn
@@ -31,7 +31,7 @@ docker run --rm ghcr.io/cmk77/k-ahfm:latest
 
 > AI Hub 원본 데이터는 라이선스상 이미지에 포함되지 않습니다.
 
-## 2. 전체 파이프라인 실행 (AI Hub 데이터 승인 필요)
+## 2. 전체 파이프라인 실행 (AI Hub 데이터 필요)
 
 환경: Ubuntu 22.04(WSL2 가능) + Python 3.11 + NVIDIA GPU(CUDA 12.x)
 
@@ -62,15 +62,22 @@ source venv/bin/activate
 이 저장소에는 **원데이터가 포함되어 있지 않습니다.** 공개 범위는 모델·실험 코드와
 집계된 결과(`results/`)뿐입니다.
 
-| 데이터 | 용도 | 접근 |
-|---|---|---|
-| AI Hub #58 심리상담 | 본 실험 (환자 186명 / 세션 1,313개) | AI Hub 이용 신청·승인 필요 |
-| AI Hub #539 멀티모달 감성 | `f_T` 텍스트 감정 인코더 사전학습 | AI Hub 이용 신청·승인 필요 |
+**[AI Hub](https://aihub.or.kr) 회원 가입 후 데이터셋 #58, #539 를 다운로드하여
+`<외부 데이터 경로>` 에 배치**하면 됩니다. 별도 심사 절차는 없습니다.
 
-- 상담 원문은 민감정보이고 AI Hub 이용 정책상 재배포가 불가능합니다.
-- 따라서 **`00_setup_env.sh` ~ `13c_*.py` 번호 파이프라인은 데이터 승인 이후에만 실행 가능**합니다.
-  승인 없이 확인하려면 위의 [빠른 데모](#빠른-데모-데이터-불필요)를 쓰세요.
-- 승인 후 절차는 [2. 전체 파이프라인 실행](#2-전체-파이프라인-실행-ai-hub-데이터-승인-필요)의 표를 따릅니다.
+| 데이터셋 | 용도 | 받은 뒤 넘기는 곳 |
+|---|---|---|
+| #58 심리상담 종단 기록 | 본 실험 (환자 186명 / 세션 1,313개) | `01_extract_data.py --source <외부 데이터 경로>/aihub_58 --dest data/extracted` |
+| #539 멀티모달 감성 | `f_T` 텍스트 감정 인코더 사전학습 | `05_build_539_corpus.py --source <외부 데이터 경로>/aihub_539 --output data/processed/aihub539_corpus.jsonl` |
+
+`f_V` 정렬 실험까지 재현하려면 #539 원본을
+`scripts/01_extract_paired_data.py --root <외부 데이터 경로>/aihub_539_multimodal --output data/phase2_pairs`
+로 한 번 더 통과시킵니다.
+
+- 상담 원문은 민감정보이고 **AI Hub 이용약관에 따라 재배포할 수 없어 저장소에 포함하지 않습니다.**
+- 따라서 **`00_setup_env.sh` ~ `13c_*.py` 번호 파이프라인은 데이터를 내려받은 뒤에만 실행 가능**합니다.
+  데이터 없이 확인하려면 위의 [빠른 데모](#빠른-데모-데이터-불필요)를 쓰세요.
+- 다운로드 후 절차는 [2. 전체 파이프라인 실행](#2-전체-파이프라인-실행-ai-hub-데이터-필요)의 표를 따릅니다.
 
 ## 재검증 절차
 
@@ -92,7 +99,7 @@ python verify_abl.py       # 표 6a/6b  (48개 항목 전부 일치)
 python verify_abl2.py      # 표 6a/6b 재대조 + α·run 성능 요약
 python verify_alpha.py     # attention α / beta_v
 
-# 데이터 승인 후, 파이프라인 실행 전 점검
+# 데이터 다운로드 후, 파이프라인 실행 전 점검
 python sanity_check_v3.py --extracted <추출 경로>
 ```
 

@@ -292,7 +292,7 @@ def show_thesis_results() -> None:
         print(f"  Youden 후 recall   : {np.mean(recalls):.3f} ± {np.std(recalls):.3f}")
 
     print(f"\n{'-' * 70}")
-    print("전체 파이프라인 재현에는 AI Hub #58/#539 데이터 승인이 필요합니다.")
+    print("전체 파이프라인 재현에는 AI Hub #58/#539 데이터셋 다운로드가 필요합니다 (README '데이터' 참조).")
     print("실행 절차: README.md 참조  |  코드: https://github.com/cmk77/k-ahfm")
     print(f"{'-' * 70}\n")
 
