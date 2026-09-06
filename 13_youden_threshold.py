@@ -16,7 +16,7 @@
 
 사용법:
     python 13_youden_threshold.py \\
-        --predictions <repo>/results/b6_attention_fold0_seed42_early
+        --predictions results/b6_attention_fold0_seed42_early
 """
 
 import argparse

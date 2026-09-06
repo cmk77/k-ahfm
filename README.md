@@ -81,14 +81,15 @@ source venv/bin/activate
 | 스크립트 | 역할 |
 |---|---|
 | `verify_tables.py` | 표 3a/3b(B1–B6 성능)를 `results/cblock1/`·`results/cblock2/`의 집계 JSON과 대조 |
-| `verify_abl.py` | 표 6a/6b(hyperedge ablation) 대조 **1차판**. 조건 키를 `minus_E_co_trajectory`(언더스코어)로 가정하는데 현재 집계 JSON은 `minus_E_co-trajectory`(하이픈)라 `KeyError`로 중단됩니다 — `verify_abl2.py`로 대체됨 |
-| `verify_abl2.py` | 같은 표 6a/6b 대조 **2차판**. 조건 키를 정규화(구두점·대소문자 제거)해 매칭하므로 표기 흔들림과 무관하게 동작 |
+| `verify_abl.py` | 표 6a/6b(hyperedge ablation)를 `results/hyperedge_ablation_v2/`와 대조하는 **1차판**(키 표기 수정됨 — 집계 JSON의 하이픈 표기 `minus_E_co-trajectory`에 맞춤) |
+| `verify_abl2.py` | 같은 표 6a/6b 대조 **2차판**. 조건 키를 정규화(구두점·대소문자 제거)해 매칭하므로 표기가 흔들려도 동작 — α·run 성능 요약도 함께 출력 |
 | `verify_alpha.py` | hyperedge 타입별 attention 가중치(α)를 `results/b6_attention_fold0_seed42_early/`의 환자별 npz에서 재계산해 논문값과 대조 |
 | `sanity_check_v3.py` | 파이프라인 실행 **전** 점검 — 세션 객체에 `depression_severity`·`anxiety_severity`·`addiction_severity` 필드가 그 이름 그대로 있는지 확인 (이름이 다르면 특징이 0으로 채워져 조용히 망가짐). `--extracted` 경로 필요 |
 
 ```bash
 python verify_tables.py    # 표 3a/3b
-python verify_abl2.py      # 표 6a/6b  (verify_abl.py 는 키 표기 불일치로 실패 — 2차판을 쓸 것)
+python verify_abl.py       # 표 6a/6b  (48개 항목 전부 일치)
+python verify_abl2.py      # 표 6a/6b 재대조 + α·run 성능 요약
 python verify_alpha.py     # attention α / beta_v
 
 # 데이터 승인 후, 파이프라인 실행 전 점검

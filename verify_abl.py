@@ -10,15 +10,15 @@ def a(cond, scen, metric, stat='mean'):
 PAPER_6a = {  # Early
  'full_B6':        (0.557,0.261, 0.001,0.656, None),
  'minus_E_trajectory':       (0.555,0.256,-0.000,0.671,-0.002),
- 'minus_E_co_trajectory':    (0.543,0.225,-0.026,0.627,-0.015),
- 'minus_E_intervention_response':(0.558,0.252,-0.027,0.644,+0.001),
+ 'minus_E_co-trajectory':    (0.543,0.225,-0.026,0.627,-0.015),
+ 'minus_E_intervention-response':(0.558,0.252,-0.027,0.644,+0.001),
  'minus_E_clinical_prior':   (0.541,0.292, 0.025,0.632,-0.016),
 }
 PAPER_6b = {  # Full
  'full_B6':        (0.528,0.279, 0.013,0.663, None),
  'minus_E_trajectory':       (0.555,0.295, 0.044,0.704,+0.026),
- 'minus_E_co_trajectory':    (0.518,0.262, 0.000,0.698,-0.011),
- 'minus_E_intervention_response':(0.536,0.262, 0.007,0.635,+0.008),
+ 'minus_E_co-trajectory':    (0.518,0.262, 0.000,0.698,-0.011),
+ 'minus_E_intervention-response':(0.536,0.262, 0.007,0.635,+0.008),
  'minus_E_clinical_prior':   (0.550,0.268, 0.046,0.675,+0.021),
 }
 

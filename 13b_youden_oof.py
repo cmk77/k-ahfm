@@ -11,10 +11,10 @@
 
 사용법:
     python 13b_youden_oof.py \
-        --fold0 <repo>/results/b6_attention_fold0_seed42_early \
-        --oof-root <repo>/results \
+        --fold0 results/b6_attention_fold0_seed42_early \
+        --oof-root results \
         --oof-pattern b6_oof_fold{F}_seed42_early \
-        --output <repo>/results/youden_oof_seed42
+        --output results/youden_oof_seed42
 """
 import argparse, json
 from pathlib import Path

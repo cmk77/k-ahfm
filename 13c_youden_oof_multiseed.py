@@ -9,11 +9,11 @@
 
 사용법:
     python 13c_youden_oof_multiseed.py \
-        --root <repo>/results \
+        --root results \
         --pattern b6_oof_fold{F}_seed{S}_early \
-        --fold0-seed42 <repo>/results/b6_attention_fold0_seed42_early \
+        --fold0-seed42 results/b6_attention_fold0_seed42_early \
         --seeds 0 42 2026 7 1024 \
-        --output <repo>/results/youden_oof_multiseed
+        --output results/youden_oof_multiseed
 """
 import argparse, json
 from pathlib import Path

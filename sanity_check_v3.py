@@ -7,7 +7,7 @@ v3 적용 전 sanity check.
 v3 효과가 없어지므로 사전 검증 필수.
 
 실행:
-    python sanity_check_v3.py --extracted <repo>/data/extracted
+    python sanity_check_v3.py --extracted data/extracted
 """
 
 import argparse
