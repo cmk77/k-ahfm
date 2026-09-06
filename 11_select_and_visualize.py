@@ -12,7 +12,7 @@
 
 사용법: 기존 11_select_and_visualize.py를 이 파일로 교체 후 재실행:
     cp 11_select_and_visualize_v2.py 11_select_and_visualize.py
-    python 11_select_and_visualize.py --output <repo>/results/b6_attention_fold0_seed42_early
+    python 11_select_and_visualize.py --output results/b6_attention_fold0_seed42_early
 """
 
 import argparse

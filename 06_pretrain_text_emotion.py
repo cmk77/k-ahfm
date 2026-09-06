@@ -13,8 +13,8 @@ projection head를 저장하여 K-AHFM-Clinic의 Stage 1 (#58 paragraph 임베�
 
 실행 예:
     python 06_pretrain_text_emotion.py \\
-        --corpus <repo>/data/processed/aihub539_corpus.jsonl \\
-        --output <repo>/checkpoints/f_T \\
+        --corpus data/processed/aihub539_corpus.jsonl \\
+        --output checkpoints/f_T \\
         --batch-size 64 --epochs 5
 """
 

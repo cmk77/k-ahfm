@@ -22,10 +22,10 @@ v1 대비 변경:
 
 사용법:
     python 12_hyperedge_ablation_v2.py \\
-        --extracted <repo>/data/extracted \\
-        --processed <repo>/data/processed \\
-        --embeddings <repo>/data/embeddings \\
-        --output <repo>/results/hyperedge_ablation_v2
+        --extracted data/extracted \\
+        --processed data/processed \\
+        --embeddings data/embeddings \\
+        --output results/hyperedge_ablation_v2
 """
 
 import argparse

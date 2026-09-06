@@ -15,10 +15,10 @@
 
 사용법:
     python 10_train_and_extract.py \\
-        --extracted <repo>/data/extracted \\
-        --processed <repo>/data/processed \\
-        --embeddings <repo>/data/embeddings \\
-        --output <repo>/results/b6_attention_fold0_seed42_early
+        --extracted data/extracted \\
+        --processed data/processed \\
+        --embeddings data/embeddings \\
+        --output results/b6_attention_fold0_seed42_early
 """
 
 import argparse

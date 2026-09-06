@@ -4,10 +4,10 @@
 
 사용법:
     python 08_train_baselines.py \\
-        --extracted <repo>/data/extracted \\
-        --processed <repo>/data/processed \\
-        --embeddings <repo>/data/embeddings \\
-        --output <repo>/results/cblock1 \\
+        --extracted data/extracted \\
+        --processed data/processed \\
+        --embeddings data/embeddings \\
+        --output results/cblock1 \\
         --scenarios early full \\
         --models B1 B2 B3 \\
         --seeds 0 42 2026 7 1024
@@ -35,7 +35,7 @@ from pathlib import Path
 import numpy as np
 import torch
 
-# 본 스크립트는 K-AHFM 프로젝트 루트(<repo>)에서 실행한다고 가정한다.
+# 본 스크립트는 K-AHFM 저장소 루트에서 실행한다고 가정한다.
 # 다음 sys.path 설정으로 기존 src/data 모듈 + 본 패키지 src 모두 접근 가능.
 PROJECT_ROOT = Path(__file__).parent.resolve()
 sys.path.insert(0, str(PROJECT_ROOT / 'src'))
@@ -283,14 +283,14 @@ def aggregate_and_summarize(runs_path, output_dir):
 def main():
     parser = argparse.ArgumentParser(description="C-block 1차 baseline 학습")
     parser.add_argument('--extracted', required=True, type=str,
-                        help='압축 해제 디렉토리 (예: <repo>/data/extracted)')
+                        help='압축 해제 디렉토리 (예: data/extracted)')
     parser.add_argument('--split', default='training', choices=['training', 'validation'])
     parser.add_argument('--processed', required=True, type=str,
-                        help='라벨/fold 디렉토리 (예: <repo>/data/processed)')
+                        help='라벨/fold 디렉토리 (예: data/processed)')
     parser.add_argument('--embeddings', required=True, type=str,
-                        help='paragraph 임베딩 캐시 (예: <repo>/data/embeddings)')
+                        help='paragraph 임베딩 캐시 (예: data/embeddings)')
     parser.add_argument('--output', required=True, type=str,
-                        help='결과 출력 디렉토리 (예: <repo>/results/cblock1)')
+                        help='결과 출력 디렉토리 (예: results/cblock1)')
     parser.add_argument('--scenarios', nargs='+', default=['early', 'full'],
                         choices=['early', 'full'])
     parser.add_argument('--models', nargs='+', default=['B1', 'B2', 'B3'],

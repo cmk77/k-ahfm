@@ -17,11 +17,11 @@ cached f_T 텍스트 임베딩과의 alignment를 다양한 측면에서 평가.
 
 사용법:
     python scripts/04_alignment_eval.py \\
-        --pairs <repo>/data/phase2_pairs/pairs.jsonl \\
-        --ft-embeddings <repo>/data/phase2_pairs/ft_text_embeddings.npy \\
-        --fv-checkpoint <repo>/checkpoints/f_V/best.pt \\
-        --faces-dir <repo>/data/phase2_pairs \\
-        --output <repo>/results/phase2_alignment
+        --pairs data/phase2_pairs/pairs.jsonl \\
+        --ft-embeddings data/phase2_pairs/ft_text_embeddings.npy \\
+        --fv-checkpoint checkpoints/f_V/best.pt \\
+        --faces-dir data/phase2_pairs \\
+        --output results/phase2_alignment
 """
 
 import argparse

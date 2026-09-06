@@ -9,11 +9,11 @@
 
 사용법 (B6v2 단독 학습):
     python 09_train_graph_models.py \\
-        --extracted <repo>/data/extracted \\
-        --processed <repo>/data/processed \\
-        --embeddings <repo>/data/embeddings \\
-        --emotion-features <repo>/data/emotion_features.json \\
-        --output <repo>/results/cblock2_b6v2 \\
+        --extracted data/extracted \\
+        --processed data/processed \\
+        --embeddings data/embeddings \\
+        --emotion-features data/emotion_features.json \\
+        --output results/cblock2_b6v2 \\
         --scenarios early full \\
         --models B6v2 \\
         --seeds 0 42 2026 7 1024

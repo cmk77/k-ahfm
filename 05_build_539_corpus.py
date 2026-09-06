@@ -8,7 +8,7 @@
 실행 예:
     python 05_build_539_corpus.py \\
         --source ~/datasets/aihub_539_multimodal \\
-        --output <repo>/data/processed/aihub539_corpus.jsonl
+        --output data/processed/aihub539_corpus.jsonl
 """
 
 import argparse
@@ -29,7 +29,7 @@ def main():
     parser.add_argument('--source', '-s', required=True, type=str,
                         help='#539 데이터 루트 (예: ~/datasets/aihub_539_multimodal)')
     parser.add_argument('--output', '-o', required=True, type=str,
-                        help='출력 JSONL 경로 (예: <repo>/data/processed/aihub539_corpus.jsonl)')
+                        help='출력 JSONL 경로 (예: data/processed/aihub539_corpus.jsonl)')
     parser.add_argument('--max-clips', type=int, default=None,
                         help='디버깅용 최대 clip 수 (기본 None = 전체)')
     args = parser.parse_args()

@@ -11,10 +11,10 @@ f_V contrastive learning에서 텍스트 측 anchor로 사용.
 
 사용법:
     python scripts/02_cache_ft_text_embeddings.py \\
-        --pairs <repo>/data/phase2_pairs/pairs.jsonl \\
-        --ft-checkpoint <repo>/checkpoints/f_T/best.pt \\
-        --tokenizer-dir <repo>/checkpoints/f_T/tokenizer \\
-        --output <repo>/data/phase2_pairs/ft_text_embeddings.npy \\
+        --pairs data/phase2_pairs/pairs.jsonl \\
+        --ft-checkpoint checkpoints/f_T/best.pt \\
+        --tokenizer-dir checkpoints/f_T/tokenizer \\
+        --output data/phase2_pairs/ft_text_embeddings.npy \\
         --max-length 96 --batch-size 64
 """
 

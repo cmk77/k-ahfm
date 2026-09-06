@@ -23,10 +23,10 @@ Loss:
 
 사용법:
     python scripts/03_train_fv_contrastive.py \\
-        --pairs <repo>/data/phase2_pairs/pairs.jsonl \\
-        --ft-embeddings <repo>/data/phase2_pairs/ft_text_embeddings.npy \\
-        --faces-dir <repo>/data/phase2_pairs \\
-        --output <repo>/checkpoints/f_V \\
+        --pairs data/phase2_pairs/pairs.jsonl \\
+        --ft-embeddings data/phase2_pairs/ft_text_embeddings.npy \\
+        --faces-dir data/phase2_pairs \\
+        --output checkpoints/f_V \\
         --epochs 20 --batch-size 64 --lr 1e-4
 """
 

@@ -25,10 +25,10 @@ Ablation 방식:
 
 사용법:
     python 12_hyperedge_ablation.py \\
-        --extracted <repo>/data/extracted \\
-        --processed <repo>/data/processed \\
-        --embeddings <repo>/data/embeddings \\
-        --output <repo>/results/hyperedge_ablation
+        --extracted data/extracted \\
+        --processed data/processed \\
+        --embeddings data/embeddings \\
+        --output results/hyperedge_ablation
 """
 
 import argparse

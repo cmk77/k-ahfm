@@ -19,7 +19,7 @@
 사용법:
     python scripts/01_extract_paired_data.py \\
         --root <외부 데이터 경로>/aihub_539_multimodal \\
-        --output <repo>/data/phase2_pairs \\
+        --output data/phase2_pairs \\
         --max-clips 200 \\
         --max-pairs-per-clip 50
 """

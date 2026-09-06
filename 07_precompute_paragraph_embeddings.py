@@ -14,9 +14,9 @@ ablation 실험에서 KLUE 백본 forward를 반복 계산하지 않아도 되�
 
 실행 예:
     python 07_precompute_paragraph_embeddings.py \\
-        --sessions <repo>/data/processed/sessions.pkl \\
-        --checkpoint <repo>/checkpoints/f_T/best.pt \\
-        --output <repo>/data/embeddings \\
+        --sessions data/processed/sessions.pkl \\
+        --checkpoint checkpoints/f_T/best.pt \\
+        --output data/embeddings \\
         --batch-size 64
 """
 
@@ -80,9 +80,9 @@ def main():
                         help='--sessions 없을 시 압축 해제 디렉토리')
     parser.add_argument('--split', default='training', choices=['training', 'validation', 'both'])
     parser.add_argument('--checkpoint', required=True, type=str,
-                        help='f_T 체크포인트 (예: <repo>/checkpoints/f_T/best.pt)')
+                        help='f_T 체크포인트 (예: checkpoints/f_T/best.pt)')
     parser.add_argument('--output', required=True, type=str,
-                        help='임베딩 캐시 디렉토리 (예: <repo>/data/embeddings)')
+                        help='임베딩 캐시 디렉토리 (예: data/embeddings)')
     parser.add_argument('--max-length', type=int, default=128)
     parser.add_argument('--batch-size', type=int, default=64)
     parser.add_argument('--num-workers', type=int, default=4)
