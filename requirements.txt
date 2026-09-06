@@ -1,6 +1,15 @@
 # K-AHFM-Clinic Python dependencies
+#
+# 검증된 조합 (전체 파이프라인 실행 기준):
+#   Python 3.11 + numpy 1.26.4 + torch (CUDA 12.1 빌드, cu121)
+#   pip install torch --index-url https://download.pytorch.org/whl/cu121
+#   numpy는 반드시 1.x — 2.x는 아래 고정 버전들과 ABI가 맞지 않는다.
+#
 # PyTorch는 별도 설치 (CUDA 12.1 빌드)
 # torch-geometric은 setup_env.sh 마지막에 별도 설치
+#
+# 데모(demo.py)만 돌릴 거라면 이 파일 전체는 필요 없다:
+#   pip install torch "numpy<2" scikit-learn
 
 # ===== 한국어 NLP =====
 transformers==4.41.2
